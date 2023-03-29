@@ -30,6 +30,7 @@ class products extends Controller
      */
     public function create()
     {
+        $this->authorize('create',product::class);
         return view('products.create');
     }
 
@@ -68,6 +69,7 @@ class products extends Controller
 
     public function edit(string $id)
     {
+        $this->authorize ('update','product');
         $products = product::findorfail($id);
         return view('products.edit', [
             'product' => $products
@@ -99,7 +101,8 @@ class products extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
-    {
+    {   
+        $this->authorize('delete','product');
         $products = product::findorfail($id);
         $products->delete();
         return redirect()->route('products.index');
