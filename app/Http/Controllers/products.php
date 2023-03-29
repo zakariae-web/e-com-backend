@@ -56,9 +56,10 @@ class products extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id): Response
+    public function show(string $id)
     {
-        //
+        $products = product ::findorfail($id);
+        return view('products.show',compact('products'));
     }
 
     /**

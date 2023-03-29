@@ -5,16 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BL Gaming | Playful Market</title>
-    <!-- LINK BOOSTRAP -->
     <link href="/styles/bootstrap.css" rel="stylesheet" />
-    <!-- LINK CSS -->
-    <link href="/styles/styles.css" rel="stylesheet" />
-    <!-- LINK FONT-AWESOME -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    />
-    <!-- SHORTCUT ICON -->
+    <link href="/styles/styles.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
     <link rel="shortcut icon" href="/imgs/logo_icon.png" type="image/x-icon" />
     <!-- SWIPPER -->
     <link
@@ -99,9 +93,6 @@
                 <a class="nav-link px-3" href="{{url('/')}}">HOME</a>
                 <a class="nav-link px-3" href="{{('/products')}}">PRODUCTS</a>
                 <a class="nav-link px-3" href="#contact">CONTACT US</a>
-                @if(Auth::user()->id == 1)
-                  <li class="nav-item nav-link"><a class="nav-link px-3"  href="{{url('/products/create')}}"> add product </a></li>
-                @endif
                 <li class="nav-item nav-link">
                         <a class="nav-link"  href="{{ route('logout') }}"
                             onclick="event.preventDefault();
