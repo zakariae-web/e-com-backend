@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\products;
+use App\Http\Controllers\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::get('stripe', [StripeController::class , 'stripe']);
+Route::post('stripe', [StripeController::class, 'stripePost'])->name('stripe.post');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('products', products::class);
 
