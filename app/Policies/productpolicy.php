@@ -8,6 +8,8 @@ use Illuminate\Auth\Access\Response;
 
 class productpolicy
 {
+
+    
     /**
      * Determine whether the user can view any models.
      */
@@ -35,7 +37,7 @@ class productpolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, product $product): bool
+    public function update(User $user): bool
     {
         return $user->id == 1;
     }
@@ -43,7 +45,7 @@ class productpolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, product $product): bool
+    public function delete(User $user): bool
     {
         return $user->id == 1;
     }

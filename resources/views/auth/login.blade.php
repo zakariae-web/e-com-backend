@@ -43,7 +43,7 @@
                 <input type="checkbox" class="ml-3" />
                 <h6 class="d-inline-block mx-2">Remember Me</h6>
                 <button class="bg-dark px-4 py-2 rounded d-block mt-4" type="submit">
-                    <a class="text-light fs-6" href="">Login</a>
+                    <a class="text-light fs-6" >Login</a>
                 </button>
             </form>
         </div>
@@ -87,8 +87,8 @@
                     deals, keep track of your orders, and join our community of
                     gaming enthusiasts!
                 </p>
-                <button class="bg-dark px-4 py-2 rounded d-block mt-4">
-                    <a class="text-light fs-6" href="">Sign Up</a>
+                <button class="bg-dark px-4 py-2 rounded d-block mt-4" type="submit">
+                    <a class="text-light fs-6">Sign Up</a>
                 </button>
             </form>
         </div>

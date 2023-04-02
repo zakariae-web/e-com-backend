@@ -13,6 +13,8 @@ class products extends Controller
     {
         $this->middleware('auth');
     }
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -69,7 +71,8 @@ class products extends Controller
 
     public function edit(string $id)
     {
-        $this->authorize ('update','product');
+
+        $this->authorize('update',product::class);
         $products = product::findorfail($id);
         return view('products.edit', [
             'product' => $products
@@ -102,7 +105,7 @@ class products extends Controller
      */
     public function destroy(string $id)
     {   
-        $this->authorize('delete','product');
+        $this->authorize('delete',product::class);
         $products = product::findorfail($id);
         $products->delete();
         return redirect()->route('products.index');
