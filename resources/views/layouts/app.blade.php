@@ -8,6 +8,7 @@
     <link href="/styles/bootstrap.css" rel="stylesheet" />
     <link href="/styles/styles.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/products.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
     <link rel="shortcut icon" href="/imgs/logo_icon.png" type="image/x-icon" />
     <!-- SWIPPER -->
@@ -90,9 +91,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav mx-auto">
-                <a class="nav-link px-3" href="{{url('/')}}">HOME</a>
-                <a class="nav-link px-3" href="{{('/products')}}">PRODUCTS</a>
-                <a class="nav-link px-3" href="#contact">CONTACT US</a>
+                <a class="nav-link px-3" href="{{url('/')}}">Home</a>
+                <a class="nav-link px-3" href="{{('/products')}}">Products</a>
+                @if(Auth::check())
+                <a class="nav-link px-3" href="{{('/products/create')}}">Add products</a>
                 <li class="nav-item nav-link">
                         <a class="nav-link"  href="{{ route('logout') }}"
                             onclick="event.preventDefault();
@@ -103,29 +105,26 @@
                             @csrf
                         </form>
                     </li>
+                    @endif
               </div>
-              <div class="nav__shoping">
+              <div class="nav__shoping ">
                 <i
                   class="fa-solid fa-cart-shopping display-7"
                   data-bs-toggle="offcanvas"
                   data-bs-target="#offcanvasRight2"
                   aria-controls="offcanvasRight"
                 ></i
-                ><span class="numberCard">0</span>
+                ><span class="numberCard ">0</span>
               </div>
 
-              <a
-                data-bs-trigger="hover focus"
-                data-bs-container="body"
-                data-bs-toggle="popover"
-                data-bs-placement="top"
-                data-bs-content="Create an account"
-                href="{{ url('login')}}"
-                class="d-inline-flex gap-3 ml-3 nav__login"
-              >
+              @if(Auth::check())
+                <h5 class="d-inline-flex gap-3 ml-3">{{ Auth::user()->name }}</h5>
+              @else
+              <a data-bs-trigger="hover focus" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Create an account" href="{{ url('login')}}" class="d-inline-flex gap-3 ml-3 nav__login">
                 <i class="fa-solid fa-user fs-5"></i>
-                <h6>Login / Sign Up</h6></a
-              >
+                <h6>Login / Sign Up</h6>
+              </a>
+              @endif
             </div>
           </nav>
         </div>

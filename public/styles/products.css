@@ -1,0 +1,6 @@
+#imgobj{
+    object-fit:contain;
+    width: 100%;
+    max-height:max-content;
+}
+

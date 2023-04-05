@@ -35,7 +35,7 @@
                 <i class="fa-solid fa-phone main-clr display-7"></i>
                 <div>
                   <h5 class="main-clr">Call Us</h5>
-                  <p>+212626353454</p>
+                  <p>+212615846000</p>
                 </div>
               </div>
             </div>
@@ -45,7 +45,7 @@
                 <i class="fa-solid fa-location-dot display-7 main-clr"></i>
                 <div>
                   <h5 class="main-clr">Location</h5>
-                  <p>Morocco, Safi</p>
+                  <p>Morocco, Rabat</p>
                 </div>
               </div>
             </div>
@@ -56,24 +56,42 @@
       <header class="bg-light header2 border-top">
         <div class="container mx-auto">
           <nav class="navbar d-flex gap-0 text-md-center text-sm-start navbar-expand-lg py-4">
-            <a href="" class="d-flex"><img src="imgs/logo.png" class="w-50 img-fluid d-none d-xxl-block"alt="logo"/></a>
+            <a href="" class="d-flex pb-0 mb-0 mt-0"><img src="imgs/logo.png" class="w-50 img-fluid d-none d-xxl-block"alt="logo"/></a>
             <button class="navbar-toggler" type="button" aria-expanded="false" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"aria-controls="offcanvasRight">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav mx-auto">
-                <a class="nav-link px-3" href="{{url('/')}}">HOME</a>
-                <a class="nav-link px-3" href="{{url('/products')}}">PRODUCTS</a>
-                <a class="nav-link px-3" href="#discount">DISCOUNT</a>
-                <a class="nav-link px-3" href="#contact">CONTACT US</a>
+                <a class="nav-link px-3" href="{{url('/')}}">Home</a>
+                <a class="nav-link px-3" href="{{url('/products')}}">Products</a>
+                <a class="nav-link px-3" href="#discount">Discount</a>
+                <a class="nav-link px-3" href="#contact">Contact Us</a>
+
+                @if(Auth::check())
+                <li class="nav-item nav-link">
+                        <a class="nav-link"  href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                  @endif
               </div>
+    
               <div class="nav__shoping">
                 <i class="fa-solid fa-cart-shopping display-7" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2" aria-controls="offcanvasRight"></i><span class="numberCard">0</span>
               </div>
+              @if(Auth::check())
+              <h5 class="d-inline-flex gap-3 ml-3">{{ Auth::user()->name }}</h5>
+              @else
               <a data-bs-trigger="hover focus" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Create an account" href="{{ url('login')}}" class="d-inline-flex gap-3 ml-3 nav__login">
                 <i class="fa-solid fa-user fs-5"></i>
                 <h6>Login / Sign Up</h6>
               </a>
+              @endif
             </div>
           </nav>
         </div>
@@ -435,15 +453,13 @@
       </div>
     </main>
     <!-- FOOTER -->
-    <footer class="bg-light p-3 mt-7 p-md-0">
+    <footer class="bg-light p-3 mt-7 p-md-0" id="contact">
       <div class="row container pt-5 pb-2 mx-auto">
         <div class="col-md-6 col-12">
           <div class="mr-7 mb-mds-4">
             <img src="imgs/logo.png" class="img-fluid w-50 mb-3" alt="" />
             <p class="text-justify">
-              Playful Market is your one-stop-shop for all things gaming. Shop
-              for the latest games, gaming accessories and merchandise, all in
-              one convenient online location.
+            Welcome to Infomarket, your online destination for high-quality computer hardware. From CPUs to storage devices, we've got you covered. Our website is secure and built using Laravel for a smooth shopping experience. Browse through our selection today and take your computing experience to the next level!
             </p>
             <h6 class="mt-3 font-bold mb-3 mb-md-2">Payment methods</h6>
             <div class="d-flex align-items-center justify-content-center gap-4">
@@ -457,29 +473,29 @@
         <div class="col-md-2 mb-mds-4">
           <div>
             <h5 class="mb-3 mb-md-5"><strong>LINKS</strong></h5>
-            <a class="d-block mb-3" href="">Home</a>
-            <a class="d-block mb-3" href="">Products</a>
-            <a class="d-block mb-3" href="">Discount</a>
-            <a class="d-block" href="contact.html">Contact Us</a>
+            <a class="d-block mb-3" href="{{url('/')}}">Home</a>
+            <a class="d-block mb-3" href="{{url('/products')}}">Products</a>
+            <a class="d-block mb-3" href="#discount">Discount</a>
+            <a class="d-block" href="#contact">Contact Us</a>
           </div>
         </div>
         <div class="col-md-4">
           <h5 class="mb-3 mb-md-5"><strong>INFORMATIONS</strong></h5>
           <div class="mb-4">
-            <a href="https://www.facebook.com/badr.lamrasli" target="_blank"><i class="fa-brands fa-facebook-f mr-3"></i></a>
-            <a href="https://www.tiktok.com/@badr_lamrasli" target="_blank"><i class="fa-brands fa-tiktok mx-3"></i></a>
-            <a href="https://www.instagram.com/badr__lamrasli/?hl=fr"target="_blank"><i class="fa-brands fa-instagram mx-3"></i></a>
+            <a href="https://web.facebook.com/otaku.kun.161446" target="_blank"><i class="fa-brands fa-facebook-f mr-3"></i></a>
+            <a href="https://github.com/zakariae-web" target="_blank"><i class="fa-brands fa-github mx-3"></i></a>
+            <a href="https://twitter.com/BelouadifZ" target="_blank"><i class="fa-brands fa-twitter mx-3"></i></a>
           </div>
           <div>
-            <h6 class="mb-3"><strong>Address: </strong>MOROCCO, SAFI</h6>
-            <h6 class="mb-3"><strong>Phone: </strong>+212626353454</h6>
-            <h6><strong>Email: </strong>lamrasli98badr@gmail.com</h6>
+            <h6 class="mb-3"><strong>Address: </strong>Morocco, Rabat</h6>
+            <h6 class="mb-3"><strong>Phone: </strong>+212615486000</h6>
+            <h6><strong>Email: </strong>zakariaebelouadif@gmail.com</h6>
           </div>
         </div>
         <div class="col-md-12 mt-5 border-top text-center">
           <p class="mt-2 text-">
-            Copyright © 2023 PLAYFUL MARKET | Coded and Designed by
-            <a target="_blank" href="https://lamraslibadr.netlify.app/"><strong class="text-decoration-underline fs-6 main-clr">Badr Lamrasli</strong></a>
+            Copyright © 2023 InfoMarket | Coded and Designed by
+            <a target="_blank" href="https://lamraslibadr.netlify.app/"><strong class="text-decoration-underline fs-6 main-clr">info_s6</strong></a>
             All Rights Reserved.
           </p>
           <p class="text-danger">The website is not complete yet !</p>

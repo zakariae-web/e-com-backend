@@ -20,12 +20,33 @@ class products extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('products.index', [
-            'products' => product::all()
-           ]);
+    public function index(Request $request)
+{
+    $products = Product::query();
+
+    // filter the products by category
+    if ($request->has('category')) {
+        $category = $request->category;
+        if ($category !== 'all') {
+            $products->where('category', $category);
+        }
     }
+
+    // search for products by name 
+    if ($request->has('name')) {
+        $name = $request->name;
+        $products->where('name', 'LIKE', '%' . $name . '%');
+    }
+
+
+    return view('products.index', [
+        'products' => $products->get()
+    ]);
+}
+
+    
+    
+    
 
     /**
      * Show the form for creating a new resource.
